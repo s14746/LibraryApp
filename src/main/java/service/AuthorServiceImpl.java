@@ -31,9 +31,16 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public void update(Author author) {
-        authors.removeIf(author1 -> author1.getId() == author.getId());
-        authors.add(author);
+    public void update(Author newAuthor) {
+
+        Optional<Author> updateAuthor = readInternal(newAuthor.getId());
+        if (!updateAuthor.isPresent()) {
+            throw new IllegalArgumentException();
+        }
+        authors.removeIf(author -> author.getId() == newAuthor.getId());
+        authors.add(newAuthor);
+
+
     }
 
     @Override

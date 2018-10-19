@@ -131,4 +131,23 @@ public class AuthorServiceImplTest {
 
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void cantUpdateTest(){
+
+        // given
+        Author author1 = new Author();
+        author1.setId(1);
+        author1.setName("Adam");
+        author1.setSurname("Mickiewicz");
+        authorService.create(author1);
+
+        Author author2 = new Author();
+        author2.setId(2);
+        author2.setName("Adam2");
+        author2.setSurname("Mickiewicz");
+
+        // when
+        authorService.update(author2);
+
+    }
 }
