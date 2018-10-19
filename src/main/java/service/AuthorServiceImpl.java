@@ -4,15 +4,19 @@ import domain.Author;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.Optional;
 
-public class AuthorServiceImpl implements AuthorService{
+public class AuthorServiceImpl implements AuthorService {
 
-    // Set<Author> authorsList = new HashSet<>();
+    private HashSet<Author> authors = new HashSet<>();
 
     @Override
-    public void create(Author author) {
-
+    public void create(Author newAuthor) {
+        Optional<Author> author = readInternal(newAuthor.getId());
+        if (author.isPresent()) {
+            throw new IllegalArgumentException();
+        }
+        authors.add(newAuthor);
     }
 
     @Override
@@ -22,7 +26,8 @@ public class AuthorServiceImpl implements AuthorService{
 
     @Override
     public Author read(int id) {
-        return null;
+        return readInternal(id)
+                .orElseThrow(IllegalArgumentException::new);
     }
 
     @Override
@@ -35,4 +40,9 @@ public class AuthorServiceImpl implements AuthorService{
 
     }
 
+    private Optional<Author> readInternal(int id) {
+        return authors.stream()
+                .filter(author -> author.getId() == id)
+                .findFirst();
+    }
 }
