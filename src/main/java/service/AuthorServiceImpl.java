@@ -32,7 +32,8 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public void update(Author author) {
-
+        authors.removeIf(author1 -> author1.getId() == author.getId());
+        authors.add(author);
     }
 
     @Override
