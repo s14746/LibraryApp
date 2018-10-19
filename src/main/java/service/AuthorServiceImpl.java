@@ -21,7 +21,7 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public Collection<Author> readAll() {
-        return null;
+        return authors;
     }
 
     @Override
