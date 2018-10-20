@@ -21,7 +21,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Collection<Book> readAll() {
-        return null;
+        return books;
     }
 
     @Override
