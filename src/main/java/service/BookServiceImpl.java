@@ -32,7 +32,12 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void update(Book newBook) {
-        
+        Optional<Book> updateBook = readInternal(newBook.getId());
+        if (!updateBook.isPresent()) {
+            throw new IllegalArgumentException();
+        }
+        books.removeIf(book -> book.getId() == newBook.getId());
+        books.add(newBook);
     }
 
     @Override

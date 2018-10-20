@@ -7,14 +7,12 @@ import org.junit.Test;
 
 import java.util.Collection;
 
-import static org.junit.Assert.*;
-
 public class BookServiceImplTest {
 
     private BookService bookService;
 
     @Before
-    public void setup(){
+    public void setup() {
         bookService = new BookServiceImpl();
     }
 
@@ -38,7 +36,7 @@ public class BookServiceImplTest {
     }
 
     @Test
-    public void readAllTest(){
+    public void readAllTest() {
 
         // given
         Book book1 = new Book();
@@ -77,7 +75,7 @@ public class BookServiceImplTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void readNotFoundTest(){
+    public void readNotFoundTest() {
 
         // given
         Book book1 = new Book();
@@ -129,6 +127,59 @@ public class BookServiceImplTest {
 
         // then
         Assert.assertEquals(2, 2);
+    }
 
+    @Test
+    public void updateTest() {
+
+        // given
+        Book book1 = new Book();
+        book1.setId(1);
+        book1.setTitle("Pan Tadeusz");
+        book1.setAuthorId(1);
+        book1.setYearOfPublishment(1996);
+        book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
+        book1.setAvailability(true);
+        bookService.create(book1);
+
+        Book book2 = new Book();
+        book2.setId(1);
+        book2.setTitle("Pan Tadeusz");
+        book2.setAuthorId(1);
+        book2.setYearOfPublishment(1996);
+        book2.setPublishingHouse("Greg");
+        book2.setAvailability(true);
+
+        // when
+        bookService.update(book2);
+
+        // then
+        Book updateBook = bookService.read(book1.getId());
+        Assert.assertEquals("Greg", updateBook.getPublishingHouse());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void cantUpdateTest() {
+
+        // given
+        Book book1 = new Book();
+        book1.setId(1);
+        book1.setTitle("Pan Tadeusz");
+        book1.setAuthorId(1);
+        book1.setYearOfPublishment(1996);
+        book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
+        book1.setAvailability(true);
+        bookService.create(book1);
+
+        Book book2 = new Book();
+        book2.setId(2);
+        book2.setTitle("Pan Tadeusz");
+        book2.setAuthorId(1);
+        book2.setYearOfPublishment(1996);
+        book2.setPublishingHouse("Greg");
+        book2.setAvailability(true);
+
+        // when
+        bookService.update(book2);
     }
 }
