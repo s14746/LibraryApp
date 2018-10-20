@@ -150,4 +150,29 @@ public class AuthorServiceImplTest {
         authorService.update(author2);
 
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void deleteTest(){
+
+        // given
+        Author author1 = new Author();
+        author1.setId(1);
+        author1.setName("Adam");
+        author1.setSurname("Mickiewicz");
+        authorService.create(author1);
+
+        Author author2 = new Author();
+        author2.setId(2);
+        author2.setName("Henryk");
+        author2.setSurname("Sienkiewicz");
+        authorService.create(author2);
+
+        // when
+        authorService.delete(author2);
+
+        // then
+        Assert.assertNotNull(authorService.read(1));
+        Assert.assertNull(authorService.read(2));
+
+    }
 }

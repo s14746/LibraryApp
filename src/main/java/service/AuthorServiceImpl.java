@@ -40,12 +40,16 @@ public class AuthorServiceImpl implements AuthorService {
         authors.removeIf(author -> author.getId() == newAuthor.getId());
         authors.add(newAuthor);
 
-
     }
 
     @Override
-    public void delete(Author author) {
+    public void delete(Author deleteAuthor) {
 
+        Optional<Author> deleteAuthor2 = readInternal(deleteAuthor.getId());
+        if (!deleteAuthor2.isPresent()) {
+            throw new IllegalArgumentException();
+        }
+        authors.removeIf(author -> author.getId() == deleteAuthor.getId());
     }
 
     private Optional<Author> readInternal(int id) {
