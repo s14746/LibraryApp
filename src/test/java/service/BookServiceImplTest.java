@@ -182,4 +182,34 @@ public class BookServiceImplTest {
         // when
         bookService.update(book2);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void deleteTest() {
+
+        // given
+        Book book1 = new Book();
+        book1.setId(1);
+        book1.setTitle("Pan Tadeusz");
+        book1.setAuthorId(1);
+        book1.setYearOfPublishment(1996);
+        book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
+        book1.setAvailability(true);
+        bookService.create(book1);
+
+        Book book2 = new Book();
+        book2.setId(2);
+        book2.setTitle("Potop");
+        book2.setAuthorId(2);
+        book2.setYearOfPublishment(2012);
+        book2.setPublishingHouse("Greg");
+        book2.setAvailability(false);
+        bookService.create(book2);
+
+        // when
+        bookService.delete(book2);
+
+        // then
+        Assert.assertNotNull(bookService.read(1));
+        Assert.assertNull(bookService.read(2));
+    }
 }

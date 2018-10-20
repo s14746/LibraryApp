@@ -42,7 +42,11 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void delete(Book deleteBook) {
-        
+        Optional<Book> deleteBook2 = readInternal(deleteBook.getId());
+        if (!deleteBook2.isPresent()) {
+            throw new IllegalArgumentException();
+        }
+        books.removeIf(book -> book.getId() == deleteBook.getId());
     }
 
     private Optional<Book> readInternal(int id) {
