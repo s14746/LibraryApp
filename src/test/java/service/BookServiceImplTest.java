@@ -74,6 +74,61 @@ public class BookServiceImplTest {
         // then
         Assert.assertNotNull(books);
         Assert.assertEquals(3, books.size());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void readNotFoundTest(){
+
+        // given
+        Book book1 = new Book();
+        book1.setId(1);
+        book1.setTitle("Pan Tadeusz");
+        book1.setAuthorId(1);
+        book1.setYearOfPublishment(1996);
+        book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
+        book1.setAvailability(true);
+        bookService.create(book1);
+
+        Book book2 = new Book();
+        book2.setId(2);
+        book2.setTitle("Potop");
+        book2.setAuthorId(2);
+        book2.setYearOfPublishment(2012);
+        book2.setPublishingHouse("Greg");
+        book2.setAvailability(false);
+        bookService.create(book2);
+
+        // when
+        bookService.read(3);
+    }
+
+    @Test
+    public void readFoundTest() {
+
+        //given
+        Book book1 = new Book();
+        book1.setId(1);
+        book1.setTitle("Pan Tadeusz");
+        book1.setAuthorId(1);
+        book1.setYearOfPublishment(1996);
+        book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
+        book1.setAvailability(true);
+        bookService.create(book1);
+
+        Book book2 = new Book();
+        book2.setId(2);
+        book2.setTitle("Potop");
+        book2.setAuthorId(2);
+        book2.setYearOfPublishment(2012);
+        book2.setPublishingHouse("Greg");
+        book2.setAvailability(false);
+        bookService.create(book2);
+
+        // when
+        bookService.read(2);
+
+        // then
+        Assert.assertEquals(2, 2);
 
     }
 }
