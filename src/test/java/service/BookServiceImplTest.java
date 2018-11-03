@@ -5,15 +5,20 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class BookServiceImplTest {
 
     private BookService bookService;
+    private DateService dateService = mock(DateService.class);
 
     @Before
     public void setup() {
-        bookService = new BookServiceImpl();
+        bookService = new BookServiceImpl(dateService);
     }
 
     @Test
@@ -211,5 +216,48 @@ public class BookServiceImplTest {
         // then
         Assert.assertNotNull(bookService.read(1));
         Assert.assertNull(bookService.read(2));
+    }
+
+    @Test
+    public void shouldSetCreateTimeWhenIsOn() {
+        // given
+        LocalDateTime mockedTime = LocalDateTime.parse("2018-01-01T10:00:01");
+        when(dateService.now()).thenReturn(mockedTime);
+
+        bookService.setShouldSetCreateTime(true);
+
+        Book book1 = new Book();
+        book1.setId(1);
+        book1.setTitle("Pan Tadeusz");
+        book1.setAuthorId(1);
+        book1.setYearOfPublishment(1996);
+        book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
+        book1.setAvailability(true);
+
+        bookService.create(book1);
+
+        // when
+        Book book = bookService.read(book1.getId());
+        Assert.assertEquals(book.getCreateTime(), mockedTime);
+    }
+
+    @Test
+    public void shouldNotSetCreateTimeWhenIsOff() {
+        // given
+        bookService.setShouldSetCreateTime(false);
+
+        Book book1 = new Book();
+        book1.setId(1);
+        book1.setTitle("Pan Tadeusz");
+        book1.setAuthorId(1);
+        book1.setYearOfPublishment(1996);
+        book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
+        book1.setAvailability(true);
+
+        bookService.create(book1);
+
+        // when
+        Book book = bookService.read(book1.getId());
+        Assert.assertNull(book.getCreateTime());
     }
 }

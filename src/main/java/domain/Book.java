@@ -1,5 +1,7 @@
 package domain;
 
+import java.time.LocalDateTime;
+
 public class Book {
 
     private int id;
@@ -8,6 +10,9 @@ public class Book {
     private int yearOfPublishment;
     private String publishingHouse;
     private boolean availability;
+    private LocalDateTime createTime;
+    private LocalDateTime updateTime;
+    private LocalDateTime lastReadingTime;
 
     public int getId() {
         return id;
@@ -55,5 +60,29 @@ public class Book {
 
     public void setAvailability(boolean availability) {
         this.availability = availability;
+    }
+
+    public LocalDateTime getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(LocalDateTime createTime) {
+        this.createTime = createTime;
+    }
+
+    public LocalDateTime getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(LocalDateTime updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public LocalDateTime getLastReadingTime() {
+        return lastReadingTime;
+    }
+
+    public void setLastReadingTime(LocalDateTime lastReadingTime) {
+        this.lastReadingTime = lastReadingTime;
     }
 }

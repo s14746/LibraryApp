@@ -11,4 +11,7 @@ public interface BookService {
     Book read(int id);
     void update(Book book);
     void delete(Book book);
+    void setShouldSetCreateTime(boolean shouldSetCreateTime);
+    void setShouldSetUpdateTime(boolean shouldSetUpdateTime);
+    void setShouldSetLastReadingTime(boolean shouldSetLastReadingTime);
 }
