@@ -10,9 +10,9 @@ public class BookServiceImpl implements BookService {
 
     private HashSet<Book> books = new HashSet<>();
     private final DateService dateService;
-    private boolean shouldSetCreateTime;
-    private boolean shouldSetUpdateTime;
-    private boolean shouldSetLastReadingTime;
+    private boolean shouldSetCreateTime = true;
+    private boolean shouldSetUpdateTime = true;
+    private boolean shouldSetLastReadingTime = true;
 
     public BookServiceImpl(DateService dateService) {
         this.dateService = dateService;
