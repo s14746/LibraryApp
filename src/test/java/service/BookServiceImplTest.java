@@ -305,4 +305,67 @@ public class BookServiceImplTest {
         // then
         Assert.assertNull(book.getLastReadingTime());
     }
+
+    @Test
+    public void shouldSetUpdateTimeWhenInOn() {
+        // given
+        LocalDateTime mockedTime = LocalDateTime.parse("2018-12-31T23:50:55");
+        when(dateService.now()).thenReturn(mockedTime);
+
+        bookService.setShouldSetUpdateTime(true);
+
+        Book book1 = new Book();
+        book1.setId(1);
+        book1.setTitle("Pan Tadeusz");
+        book1.setAuthorId(1);
+        book1.setYearOfPublishment(1996);
+        book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
+        book1.setAvailability(true);
+        bookService.create(book1);
+
+        Book book2 = new Book();
+        book2.setId(1);
+        book2.setTitle("Pan Tadeusz");
+        book2.setAuthorId(1);
+        book2.setYearOfPublishment(1996);
+        book2.setPublishingHouse("Greg");
+        book2.setAvailability(true);
+
+        // when
+        bookService.update(book2);
+
+        // then
+        Book updateBook = bookService.read(book2.getId());
+        Assert.assertEquals(updateBook.getUpdateTime(), mockedTime);
+    }
+
+    @Test
+    public void shouldNotSetUpdateTimeWhenInOff() {
+        // given
+        bookService.setShouldSetUpdateTime(false);
+
+        Book book1 = new Book();
+        book1.setId(1);
+        book1.setTitle("Pan Tadeusz");
+        book1.setAuthorId(1);
+        book1.setYearOfPublishment(1996);
+        book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
+        book1.setAvailability(true);
+        bookService.create(book1);
+
+        Book book2 = new Book();
+        book2.setId(1);
+        book2.setTitle("Pan Tadeusz");
+        book2.setAuthorId(1);
+        book2.setYearOfPublishment(1996);
+        book2.setPublishingHouse("Greg");
+        book2.setAvailability(true);
+
+        // when
+        bookService.update(book2);
+
+        // then
+        Book updateBook = bookService.read(book2.getId());
+        Assert.assertNull(updateBook.getUpdateTime());
+    }
 }

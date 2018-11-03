@@ -48,6 +48,9 @@ public class BookServiceImpl implements BookService {
             throw new IllegalArgumentException();
         }
         books.removeIf(book -> book.getId() == newBook.getId());
+        if (shouldSetUpdateTime) {
+            newBook.setUpdateTime(dateService.now());
+        }
         books.add(newBook);
     }
 
