@@ -260,4 +260,49 @@ public class BookServiceImplTest {
         Book book = bookService.read(book1.getId());
         Assert.assertNull(book.getCreateTime());
     }
+
+    @Test
+    public void shouldSetReadTimeWhenInOn() {
+        //given
+        LocalDateTime mockedTime = LocalDateTime.parse("2018-12-31T23:50:55");
+        when(dateService.now()).thenReturn(mockedTime);
+
+        bookService.setShouldSetLastReadingTime(true);
+
+        Book book1 = new Book();
+        book1.setId(1);
+        book1.setTitle("Pan Tadeusz");
+        book1.setAuthorId(1);
+        book1.setYearOfPublishment(1996);
+        book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
+        book1.setAvailability(true);
+        bookService.create(book1);
+
+        // when
+        Book book = bookService.read(book1.getId());
+
+        // then
+        Assert.assertEquals(book.getLastReadingTime(), mockedTime);
+    }
+
+    @Test
+    public void shouldNotSetReadTimeWhenInOff() {
+        //given
+        bookService.setShouldSetLastReadingTime(false);
+
+        Book book1 = new Book();
+        book1.setId(1);
+        book1.setTitle("Pan Tadeusz");
+        book1.setAuthorId(1);
+        book1.setYearOfPublishment(1996);
+        book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
+        book1.setAvailability(true);
+        bookService.create(book1);
+
+        // when
+        Book book = bookService.read(book1.getId());
+
+        // then
+        Assert.assertNull(book.getLastReadingTime());
+    }
 }

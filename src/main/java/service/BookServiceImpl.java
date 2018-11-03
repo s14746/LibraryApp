@@ -73,8 +73,14 @@ public class BookServiceImpl implements BookService {
     }
 
     private Optional<Book> readInternal(int id) {
-        return books.stream()
+        Optional<Book> optionalBook = books.stream()
                 .filter(book -> book.getId() == id)
                 .findFirst();
+
+        if (shouldSetLastReadingTime && optionalBook.isPresent()) {
+            optionalBook.get().setLastReadingTime(dateService.now());
+        }
+
+        return optionalBook;
     }
 }
