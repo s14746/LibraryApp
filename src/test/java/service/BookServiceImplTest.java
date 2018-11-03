@@ -128,10 +128,10 @@ public class BookServiceImplTest {
         bookService.create(book2);
 
         // when
-        bookService.read(2);
+        Book book = bookService.read(2);
 
         // then
-        Assert.assertEquals(2, 2);
+        Assert.assertEquals(2, book.getId());
     }
 
     @Test
