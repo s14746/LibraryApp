@@ -32,6 +32,11 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Collection<Book> readAll() {
+        for (Book book : books) {
+            if (shouldSetLastReadingTime) {
+                book.setLastReadingTime(dateService.now());
+            }
+        }
         return books;
     }
 
