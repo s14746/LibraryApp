@@ -415,7 +415,7 @@ public class BookServiceImplTest {
     }
 
     @Test
-    public void shouldNotSetReadTimeForAllWhenIsOn() {
+    public void shouldNotSetReadTimeForAllWhenIsOff() {
 
         // given
         bookService.setShouldSetLastReadingTime(false);
