@@ -1,6 +1,7 @@
 package domain;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Book {
 
@@ -84,5 +85,18 @@ public class Book {
 
     public void setLastReadingTime(LocalDateTime lastReadingTime) {
         this.lastReadingTime = lastReadingTime;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return id == book.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

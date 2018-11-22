@@ -4,7 +4,9 @@ import domain.Book;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class BookServiceImpl implements BookService {
 
@@ -44,6 +46,13 @@ public class BookServiceImpl implements BookService {
     public Book read(int id) {
         return readInternal(id)
                 .orElseThrow(IllegalArgumentException::new);
+    }
+
+    @Override
+    public List<Book> readByTitle(String title) {
+        return books.stream()
+                .filter(book -> book.getTitle().startsWith(title))
+                .collect(Collectors.toList());
     }
 
     @Override
