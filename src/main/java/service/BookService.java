@@ -13,6 +13,7 @@ public interface BookService {
     List<Book> readByTitle(String title);
     void update(Book book);
     void delete(Book book);
+    void deleteByPublishingHouseAndYearOfPublishment(String publishingHouse, int yearOfPublishment);
     void setShouldSetCreateTime(boolean shouldSetCreateTime);
     void setShouldSetUpdateTime(boolean shouldSetUpdateTime);
     void setShouldSetLastReadingTime(boolean shouldSetLastReadingTime);

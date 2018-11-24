@@ -77,6 +77,11 @@ public class BookServiceImpl implements BookService {
         books.removeIf(book -> book.getId() == deleteBook.getId());
     }
 
+    @Override
+    public void deleteByPublishingHouseAndYearOfPublishment(String publishingHouse, int yearOfPublishment) {
+        books.removeIf(book -> book.getPublishingHouse().contains(publishingHouse) && book.getYearOfPublishment() < yearOfPublishment);
+    }
+
     public void setShouldSetCreateTime(boolean shouldSetCreateTime) {
         this.shouldSetCreateTime = shouldSetCreateTime;
     }
