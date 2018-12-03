@@ -7,7 +7,8 @@ public class Book {
 
     private int id;
     private String title;
-    private int authorId;
+    private String authorName;
+    private String authorSurname;
     private int yearOfPublishment;
     private String publishingHouse;
     private boolean availability;
@@ -31,12 +32,20 @@ public class Book {
         this.title = title;
     }
 
-    public int getAuthorId() {
-        return authorId;
+    public String getAuthorName() {
+        return authorName;
     }
 
-    public void setAuthorId(int authorId) {
-        this.authorId = authorId;
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
+
+    public String getAuthorSurname() {
+        return authorSurname;
+    }
+
+    public void setAuthorSurname(String authorSurname) {
+        this.authorSurname = authorSurname;
     }
 
     public int getYearOfPublishment() {

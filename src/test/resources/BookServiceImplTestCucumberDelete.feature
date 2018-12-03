@@ -18,6 +18,6 @@ Feature: LibraryApp
     But book with id <bookId2> should not be deleted
     Examples:
       | publishingHouse    | date | bookId | bookId2 |
-      | "Oficyna"          | 2000 | 1      | 5       |
+      | "Oficyn."          | 2000 | 1      | 5       |
       | "Wydawnictwo GREG" | 2011 | 2      | 6       |
-      | "Świat Książki"    | 1995 | 3      | 4       |
+      | "Świat Książ*"     | 1995 | 3      | 4       |

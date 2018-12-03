@@ -28,7 +28,8 @@ public class BookServiceImplTest {
         Book book = new Book();
         book.setId(1);
         book.setTitle("Pan Tadeusz");
-        book.setAuthorId(1);
+        book.setAuthorName("Adam");
+        book.setAuthorSurname("Mickiewicz");
         book.setYearOfPublishment(1996);
         book.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
         book.setAvailability(true);
@@ -47,7 +48,8 @@ public class BookServiceImplTest {
         Book book1 = new Book();
         book1.setId(1);
         book1.setTitle("Pan Tadeusz");
-        book1.setAuthorId(1);
+        book1.setAuthorName("Adam");
+        book1.setAuthorSurname("Mickiewicz");
         book1.setYearOfPublishment(1996);
         book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
         book1.setAvailability(true);
@@ -56,7 +58,8 @@ public class BookServiceImplTest {
         Book book2 = new Book();
         book2.setId(2);
         book2.setTitle("Potop");
-        book2.setAuthorId(2);
+        book2.setAuthorName("Henryk");
+        book2.setAuthorSurname("Sienkiewicz");
         book2.setYearOfPublishment(2012);
         book2.setPublishingHouse("Greg");
         book2.setAvailability(false);
@@ -65,7 +68,8 @@ public class BookServiceImplTest {
         Book book3 = new Book();
         book3.setId(3);
         book3.setTitle("Ogniem i mieczem");
-        book3.setAuthorId(2);
+        book3.setAuthorName("Henryk");
+        book3.setAuthorSurname("Sienkiewicz");
         book3.setYearOfPublishment(2009);
         book3.setPublishingHouse("Greg");
         book3.setAvailability(true);
@@ -86,7 +90,8 @@ public class BookServiceImplTest {
         Book book1 = new Book();
         book1.setId(1);
         book1.setTitle("Pan Tadeusz");
-        book1.setAuthorId(1);
+        book1.setAuthorName("Adam");
+        book1.setAuthorSurname("Mickiewicz");
         book1.setYearOfPublishment(1996);
         book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
         book1.setAvailability(true);
@@ -95,7 +100,8 @@ public class BookServiceImplTest {
         Book book2 = new Book();
         book2.setId(2);
         book2.setTitle("Potop");
-        book2.setAuthorId(2);
+        book2.setAuthorName("Henryk");
+        book2.setAuthorSurname("Sienkiewicz");
         book2.setYearOfPublishment(2012);
         book2.setPublishingHouse("Greg");
         book2.setAvailability(false);
@@ -112,7 +118,8 @@ public class BookServiceImplTest {
         Book book1 = new Book();
         book1.setId(1);
         book1.setTitle("Pan Tadeusz");
-        book1.setAuthorId(1);
+        book1.setAuthorName("Adam");
+        book1.setAuthorSurname("Mickiewicz");
         book1.setYearOfPublishment(1996);
         book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
         book1.setAvailability(true);
@@ -121,7 +128,8 @@ public class BookServiceImplTest {
         Book book2 = new Book();
         book2.setId(2);
         book2.setTitle("Potop");
-        book2.setAuthorId(2);
+        book2.setAuthorName("Henryk");
+        book2.setAuthorSurname("Sienkiewicz");
         book2.setYearOfPublishment(2012);
         book2.setPublishingHouse("Greg");
         book2.setAvailability(false);
@@ -141,7 +149,8 @@ public class BookServiceImplTest {
         Book book1 = new Book();
         book1.setId(1);
         book1.setTitle("Pan Tadeusz");
-        book1.setAuthorId(1);
+        book1.setAuthorName("Adam");
+        book1.setAuthorSurname("Mickiewicz");
         book1.setYearOfPublishment(1996);
         book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
         book1.setAvailability(true);
@@ -150,7 +159,8 @@ public class BookServiceImplTest {
         Book book2 = new Book();
         book2.setId(1);
         book2.setTitle("Pan Tadeusz");
-        book2.setAuthorId(1);
+        book2.setAuthorName("Adam");
+        book2.setAuthorSurname("Mickiewicz");
         book2.setYearOfPublishment(1996);
         book2.setPublishingHouse("Greg");
         book2.setAvailability(true);
@@ -170,7 +180,8 @@ public class BookServiceImplTest {
         Book book1 = new Book();
         book1.setId(1);
         book1.setTitle("Pan Tadeusz");
-        book1.setAuthorId(1);
+        book1.setAuthorName("Adam");
+        book1.setAuthorSurname("Mickiewicz");
         book1.setYearOfPublishment(1996);
         book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
         book1.setAvailability(true);
@@ -179,7 +190,8 @@ public class BookServiceImplTest {
         Book book2 = new Book();
         book2.setId(2);
         book2.setTitle("Pan Tadeusz");
-        book2.setAuthorId(1);
+        book2.setAuthorName("Adam");
+        book2.setAuthorSurname("Mickiewicz");
         book2.setYearOfPublishment(1996);
         book2.setPublishingHouse("Greg");
         book2.setAvailability(true);
@@ -195,7 +207,8 @@ public class BookServiceImplTest {
         Book book1 = new Book();
         book1.setId(1);
         book1.setTitle("Pan Tadeusz");
-        book1.setAuthorId(1);
+        book1.setAuthorName("Adam");
+        book1.setAuthorSurname("Mickiewicz");
         book1.setYearOfPublishment(1996);
         book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
         book1.setAvailability(true);
@@ -204,7 +217,8 @@ public class BookServiceImplTest {
         Book book2 = new Book();
         book2.setId(2);
         book2.setTitle("Potop");
-        book2.setAuthorId(2);
+        book2.setAuthorName("Henryk");
+        book2.setAuthorSurname("Sienkiewicz");
         book2.setYearOfPublishment(2012);
         book2.setPublishingHouse("Greg");
         book2.setAvailability(false);
@@ -229,7 +243,8 @@ public class BookServiceImplTest {
         Book book1 = new Book();
         book1.setId(1);
         book1.setTitle("Pan Tadeusz");
-        book1.setAuthorId(1);
+        book1.setAuthorName("Adam");
+        book1.setAuthorSurname("Mickiewicz");
         book1.setYearOfPublishment(1996);
         book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
         book1.setAvailability(true);
@@ -249,7 +264,8 @@ public class BookServiceImplTest {
         Book book1 = new Book();
         book1.setId(1);
         book1.setTitle("Pan Tadeusz");
-        book1.setAuthorId(1);
+        book1.setAuthorName("Adam");
+        book1.setAuthorSurname("Mickiewicz");
         book1.setYearOfPublishment(1996);
         book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
         book1.setAvailability(true);
@@ -272,7 +288,8 @@ public class BookServiceImplTest {
         Book book1 = new Book();
         book1.setId(1);
         book1.setTitle("Pan Tadeusz");
-        book1.setAuthorId(1);
+        book1.setAuthorName("Adam");
+        book1.setAuthorSurname("Mickiewicz");
         book1.setYearOfPublishment(1996);
         book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
         book1.setAvailability(true);
@@ -293,7 +310,8 @@ public class BookServiceImplTest {
         Book book1 = new Book();
         book1.setId(1);
         book1.setTitle("Pan Tadeusz");
-        book1.setAuthorId(1);
+        book1.setAuthorName("Adam");
+        book1.setAuthorSurname("Mickiewicz");
         book1.setYearOfPublishment(1996);
         book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
         book1.setAvailability(true);
@@ -317,7 +335,8 @@ public class BookServiceImplTest {
         Book book1 = new Book();
         book1.setId(1);
         book1.setTitle("Pan Tadeusz");
-        book1.setAuthorId(1);
+        book1.setAuthorName("Adam");
+        book1.setAuthorSurname("Mickiewicz");
         book1.setYearOfPublishment(1996);
         book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
         book1.setAvailability(true);
@@ -326,7 +345,8 @@ public class BookServiceImplTest {
         Book book2 = new Book();
         book2.setId(1);
         book2.setTitle("Pan Tadeusz");
-        book2.setAuthorId(1);
+        book2.setAuthorName("Adam");
+        book2.setAuthorSurname("Mickiewicz");
         book2.setYearOfPublishment(1996);
         book2.setPublishingHouse("Greg");
         book2.setAvailability(true);
@@ -347,7 +367,8 @@ public class BookServiceImplTest {
         Book book1 = new Book();
         book1.setId(1);
         book1.setTitle("Pan Tadeusz");
-        book1.setAuthorId(1);
+        book1.setAuthorName("Adam");
+        book1.setAuthorSurname("Mickiewicz");
         book1.setYearOfPublishment(1996);
         book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
         book1.setAvailability(true);
@@ -356,7 +377,8 @@ public class BookServiceImplTest {
         Book book2 = new Book();
         book2.setId(1);
         book2.setTitle("Pan Tadeusz");
-        book2.setAuthorId(1);
+        book2.setAuthorName("Adam");
+        book2.setAuthorSurname("Mickiewicz");
         book2.setYearOfPublishment(1996);
         book2.setPublishingHouse("Greg");
         book2.setAvailability(true);
@@ -381,7 +403,8 @@ public class BookServiceImplTest {
         Book book1 = new Book();
         book1.setId(1);
         book1.setTitle("Pan Tadeusz");
-        book1.setAuthorId(1);
+        book1.setAuthorName("Adam");
+        book1.setAuthorSurname("Mickiewicz");
         book1.setYearOfPublishment(1996);
         book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
         book1.setAvailability(true);
@@ -390,7 +413,8 @@ public class BookServiceImplTest {
         Book book2 = new Book();
         book2.setId(2);
         book2.setTitle("Potop");
-        book2.setAuthorId(2);
+        book2.setAuthorName("Henryk");
+        book2.setAuthorSurname("Sienkiewicz");
         book2.setYearOfPublishment(2012);
         book2.setPublishingHouse("Greg");
         book2.setAvailability(false);
@@ -399,7 +423,8 @@ public class BookServiceImplTest {
         Book book3 = new Book();
         book3.setId(3);
         book3.setTitle("Ogniem i mieczem");
-        book3.setAuthorId(2);
+        book3.setAuthorName("Henryk");
+        book3.setAuthorSurname("Sienkiewicz");
         book3.setYearOfPublishment(2009);
         book3.setPublishingHouse("Greg");
         book3.setAvailability(true);
@@ -423,7 +448,8 @@ public class BookServiceImplTest {
         Book book1 = new Book();
         book1.setId(1);
         book1.setTitle("Pan Tadeusz");
-        book1.setAuthorId(1);
+        book1.setAuthorName("Adam");
+        book1.setAuthorSurname("Mickiewicz");
         book1.setYearOfPublishment(1996);
         book1.setPublishingHouse("Beskidzka Oficyna Wydawnicza");
         book1.setAvailability(true);
@@ -432,7 +458,8 @@ public class BookServiceImplTest {
         Book book2 = new Book();
         book2.setId(2);
         book2.setTitle("Potop");
-        book2.setAuthorId(2);
+        book2.setAuthorName("Henryk");
+        book2.setAuthorSurname("Sienkiewicz");
         book2.setYearOfPublishment(2012);
         book2.setPublishingHouse("Greg");
         book2.setAvailability(false);
@@ -441,7 +468,8 @@ public class BookServiceImplTest {
         Book book3 = new Book();
         book3.setId(3);
         book3.setTitle("Ogniem i mieczem");
-        book3.setAuthorId(2);
+        book3.setAuthorName("Henryk");
+        book3.setAuthorSurname("Sienkiewicz");
         book3.setYearOfPublishment(2009);
         book3.setPublishingHouse("Greg");
         book3.setAvailability(true);

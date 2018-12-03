@@ -2,10 +2,8 @@ package service;
 
 import domain.Book;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class BookServiceImpl implements BookService {
@@ -79,7 +77,11 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void deleteByPublishingHouseAndYearOfPublishment(String publishingHouse, int yearOfPublishment) {
-        books.removeIf(book -> book.getPublishingHouse().contains(publishingHouse) && book.getYearOfPublishment() < yearOfPublishment);
+
+        String regex = "^.*" + publishingHouse + ".*$";
+        Pattern pattern = Pattern.compile(regex);
+        books.removeIf(book -> pattern.matcher(book.getPublishingHouse()).find() && book.getYearOfPublishment() < yearOfPublishment);
+
     }
 
     public void setShouldSetCreateTime(boolean shouldSetCreateTime) {
