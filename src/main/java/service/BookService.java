@@ -19,6 +19,8 @@ public interface BookService {
 
     void delete(Book book);
 
+    void deleteAll();
+
     void deleteByPublishingHouseAndYearOfPublishment(String publishingHouse, int yearOfPublishment);
 
     void setShouldSetCreateTime(boolean shouldSetCreateTime);

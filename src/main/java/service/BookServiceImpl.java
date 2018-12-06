@@ -76,6 +76,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public void deleteAll() {
+        books = new HashSet<>();
+    }
+
+    @Override
     public void deleteByPublishingHouseAndYearOfPublishment(String publishingHouse, int yearOfPublishment) {
 
         String regex = "^.*" + publishingHouse + ".*$";

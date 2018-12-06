@@ -1,24 +1,31 @@
 package service;
 
+import configuration.BookConfiguration;
+import configuration.DatabaseConfiguration;
+import configuration.DateConfiguration;
 import domain.Book;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.time.LocalDateTime;
 import java.util.Collection;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
+@ActiveProfiles("mock-date")
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = {DateConfiguration.class, DatabaseConfiguration.class, BookConfiguration.class})
 public class BookServiceImplTest {
 
+    @Autowired
     private BookService bookService;
-    private DateService dateService = mock(DateService.class);
 
     @Before
     public void setup() {
-        bookService = new BookServiceImpl(dateService);
+        bookService.deleteAll();
     }
 
     @Test
@@ -235,9 +242,6 @@ public class BookServiceImplTest {
     @Test
     public void shouldSetCreateTimeWhenIsOn() {
         // given
-        LocalDateTime mockedTime = LocalDateTime.parse("2018-01-01T10:00:01");
-        when(dateService.now()).thenReturn(mockedTime);
-
         bookService.setShouldSetCreateTime(true);
 
         Book book1 = new Book();
@@ -253,7 +257,7 @@ public class BookServiceImplTest {
 
         // when
         Book book = bookService.read(book1.getId());
-        Assert.assertEquals(book.getCreateTime(), mockedTime);
+        Assert.assertEquals(book.getCreateTime(), DateServiceMock.MOCKED_DATE);
     }
 
     @Test
@@ -280,9 +284,6 @@ public class BookServiceImplTest {
     @Test
     public void shouldSetReadTimeWhenInOn() {
         //given
-        LocalDateTime mockedTime = LocalDateTime.parse("2018-12-31T23:50:55");
-        when(dateService.now()).thenReturn(mockedTime);
-
         bookService.setShouldSetLastReadingTime(true);
 
         Book book1 = new Book();
@@ -299,7 +300,7 @@ public class BookServiceImplTest {
         Book book = bookService.read(book1.getId());
 
         // then
-        Assert.assertEquals(book.getLastReadingTime(), mockedTime);
+        Assert.assertEquals(book.getLastReadingTime(), DateServiceMock.MOCKED_DATE);
     }
 
     @Test
@@ -327,9 +328,6 @@ public class BookServiceImplTest {
     @Test
     public void shouldSetUpdateTimeWhenInOn() {
         // given
-        LocalDateTime mockedTime = LocalDateTime.parse("2018-12-31T23:50:55");
-        when(dateService.now()).thenReturn(mockedTime);
-
         bookService.setShouldSetUpdateTime(true);
 
         Book book1 = new Book();
@@ -356,7 +354,7 @@ public class BookServiceImplTest {
 
         // then
         Book updateBook = bookService.read(book2.getId());
-        Assert.assertEquals(updateBook.getUpdateTime(), mockedTime);
+        Assert.assertEquals(updateBook.getUpdateTime(), DateServiceMock.MOCKED_DATE);
     }
 
     @Test
@@ -395,9 +393,6 @@ public class BookServiceImplTest {
     public void shouldSetReadTimeForAllWhenIsOn() {
 
         // given
-        LocalDateTime mockedTime = LocalDateTime.parse("2018-12-31T23:50:55");
-        when(dateService.now()).thenReturn(mockedTime);
-
         bookService.setShouldSetLastReadingTime(true);
 
         Book book1 = new Book();
@@ -435,7 +430,7 @@ public class BookServiceImplTest {
 
         // then
         for (Book book : books) {
-            Assert.assertEquals(book.getLastReadingTime(), mockedTime);
+            Assert.assertEquals(book.getLastReadingTime(), DateServiceMock.MOCKED_DATE);
         }
     }
 
