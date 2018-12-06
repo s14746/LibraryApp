@@ -94,11 +94,14 @@ public class BookServiceDatabaseImpl implements BookService {
         if (!updateBook.isPresent()) {
             throw new IllegalArgumentException();
         }
-        books.removeIf(book -> book.getId() == newBook.getId());
+
+        delete(newBook);
+
         if (shouldSetUpdateTime) {
             newBook.setUpdateTime(dateService.now());
         }
-        books.add(newBook);
+
+        create(newBook);
     }
 
     @Override
@@ -107,7 +110,15 @@ public class BookServiceDatabaseImpl implements BookService {
         if (!deleteBook2.isPresent()) {
             throw new IllegalArgumentException();
         }
-        books.removeIf(book -> book.getId() == deleteBook.getId());
+
+        String sql = "DELETE FROM book WHERE id = ?";
+
+        try (Connection connection = dataSource.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, deleteBook.getId());
+            statement.execute();
+        } catch (SQLException e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 
     @Override
