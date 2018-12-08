@@ -39,7 +39,7 @@ public class BookServiceDatabaseImpl implements BookService {
             throw new IllegalArgumentException();
         }
 
-        String sql = "INSERT INTO book (id, title, author_name, author_surname, year_of_publishment, publishing_house, availability, create_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO book (id, title, author_name, author_surname, year_of_publishment, publishing_house, availability, create_time, update_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = dataSource.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, newBook.getId());
@@ -54,6 +54,12 @@ public class BookServiceDatabaseImpl implements BookService {
                 statement.setTimestamp(8, Timestamp.valueOf(dateService.now()));
             } else {
                 statement.setTimestamp(8, null);
+            }
+
+            if (shouldSetUpdateTime) {
+                statement.setTimestamp(9, Timestamp.valueOf(dateService.now()));
+            } else {
+                statement.setTimestamp(9, null);
             }
 
             statement.executeUpdate();
