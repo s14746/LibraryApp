@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import service.BookService;
 
-import javax.ws.rs.Path;
+import java.util.Collection;
 
 @RestController
 public class BookApi {
@@ -23,6 +23,11 @@ public class BookApi {
         return bookService.read(id);
     }
 
+    @GetMapping("/books")
+    public Collection<Book> getBooks() {
+        return bookService.readAll();
+    }
+
     @PutMapping("/books/{id}")
     public void updateBook(@RequestBody Book book){
         bookService.update(book);
@@ -33,5 +38,10 @@ public class BookApi {
         Book book = new Book();
         book.setId(id);
         bookService.delete(book);
+    }
+
+    @DeleteMapping("/books")
+    public void deleteAllBooks(){
+        bookService.deleteAll();
     }
 }

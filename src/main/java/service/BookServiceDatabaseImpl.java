@@ -8,10 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -67,12 +64,20 @@ public class BookServiceDatabaseImpl implements BookService {
 
     @Override
     public Collection<Book> readAll() {
-        for (Book book : books) {
-            if (shouldSetLastReadingTime) {
-                book.setLastReadingTime(dateService.now());
+        String sql = "SELECT * FROM book";
+        List<Book> books = new ArrayList<>();
+
+        try (Connection connection = dataSource.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                books.add(convertToBook(resultSet));
             }
+
+            return books;
+        } catch (SQLException e) {
+            throw new IllegalArgumentException(e);
         }
-        return books;
     }
 
     @Override
@@ -164,29 +169,37 @@ public class BookServiceDatabaseImpl implements BookService {
                 return Optional.empty();
             }
 
-            Book book = new Book();
-            book.setId(resultSet.getInt("id"));
-            book.setTitle(resultSet.getString("title"));
-            book.setAuthorName(resultSet.getString("author_name"));
-            book.setAuthorSurname(resultSet.getString("author_surname"));
-            book.setYearOfPublishment(resultSet.getInt("year_of_publishment"));
-            book.setPublishingHouse(resultSet.getString("publishing_house"));
-            book.setAvailability(resultSet.getBoolean("availability"));
-            Timestamp create_time = resultSet.getTimestamp("create_time");
-            if (create_time != null) {
-                book.setCreateTime(create_time.toLocalDateTime());
-            }
-
-            Timestamp update_time = resultSet.getTimestamp("update_time");
-            if (update_time != null) {
-                book.setUpdateTime(update_time.toLocalDateTime());
-            }
-
-            book.setLastReadingTime(dateService.now());
+            Book book = convertToBook(resultSet);
             return Optional.of(book);
         } catch (SQLException e) {
             throw new IllegalArgumentException(e);
         }
+    }
+
+    private Book convertToBook(ResultSet resultSet) throws SQLException {
+        Book book = new Book();
+        book.setId(resultSet.getInt("id"));
+        book.setTitle(resultSet.getString("title"));
+        book.setAuthorName(resultSet.getString("author_name"));
+        book.setAuthorSurname(resultSet.getString("author_surname"));
+        book.setYearOfPublishment(resultSet.getInt("year_of_publishment"));
+        book.setPublishingHouse(resultSet.getString("publishing_house"));
+        book.setAvailability(resultSet.getBoolean("availability"));
+        Timestamp create_time = resultSet.getTimestamp("create_time");
+        if (create_time != null) {
+            book.setCreateTime(create_time.toLocalDateTime());
+        }
+
+        Timestamp update_time = resultSet.getTimestamp("update_time");
+        if (update_time != null) {
+            book.setUpdateTime(update_time.toLocalDateTime());
+        }
+
+        if (shouldSetLastReadingTime == Boolean.TRUE) {
+            book.setLastReadingTime(dateService.now());
+        }
+
+        return book;
     }
 
     private boolean tableExists(String tableName) {
