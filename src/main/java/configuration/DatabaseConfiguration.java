@@ -11,8 +11,8 @@ public class DatabaseConfiguration {
     @Bean
     public DataSource dataSource() {
         JDBCDataSource dataSource = new JDBCDataSource();
-        dataSource.setURL("jdbc:hsqldb:mem:bookdb");
-        dataSource.setUser("sa");
+        dataSource.setURL("jdbc:hsqldb:hsql://localhost/workdb");
+        dataSource.setUser("SA");
         dataSource.setPassword("");
         return dataSource;
     }

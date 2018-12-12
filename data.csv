@@ -1,0 +1,11 @@
+id;title;authorName;authorSurname;yearOfPublishment;publishingHouse;availability
+1;Pan Tadeusz;Adam;Mickiewicz;2000;Wydawnictwo GREG;true
+2;Dziady cz.1;Adam;Mickiewicz;2016;Books Sp. Z o.o.;true
+3;Ogniem i Mieczem;Henryk;Sienkiewicz;2001;Wydawnictwo Bellona;true
+4;Zemsta;Aleksander;Fredro;1990;Wydawnictwo GREG;false
+5;Quo vadis;Henryk;Sienkiewicz;1995;Wydawnictwo GREG;false
+6;Janko Muzykant;Henryk;Sienkiewicz;1998;Wydawnictwo GREG;false
+7;Kordian;Juliusz;S³owacki;2003;Wydawnictwo Siedmioróg;true
+8;Katarynka;Boles³aw;Prus;1993;Wydawnictwo Siedmioróg;false
+9;Latarnik;Henryk;Sienkiewicz;1995;Wydawnictwo Bellona;true
+10;Antek;Boles³aw;Prus;1991;Wydawnictwo Bellona;true
