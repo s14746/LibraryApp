@@ -1,20 +1,19 @@
 package configuration;
 
+import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import service.BookService;
-import service.BookServiceDatabaseImpl;
+import service.BookServiceHibernateImpl;
 import service.DateService;
-
-import javax.sql.DataSource;
 
 @Configuration
 public class BookConfiguration {
     @Bean
     public BookService bookService(
-            DataSource dataSource,
+            SessionFactory sessionFactory,
             DateService dateService
     ) {
-        return new BookServiceDatabaseImpl(dataSource, dateService);
+        return new BookServiceHibernateImpl(sessionFactory, dateService);
     }
 }

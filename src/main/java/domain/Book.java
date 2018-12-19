@@ -1,10 +1,14 @@
 package domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Entity
 public class Book {
 
+    @Id
     private int id;
     private String title;
     private String authorName;
