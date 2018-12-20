@@ -42,7 +42,6 @@ public class BookServiceDBUnitTest {
     @DatabaseSetup("/fullData.xml")
     @ExpectedDatabase(value = "/addBookData.xml",
             assertionMode = DatabaseAssertionMode.NON_STRICT)
-
     public void bookCreateTest() {
 
         assertEquals(10, bookService.readAll().size());
@@ -55,5 +54,13 @@ public class BookServiceDBUnitTest {
         bookService.create(book);
 
         assertEquals(11, bookService.readAll().size());
+    }
+
+    @Test
+    @DatabaseSetup("/fullData.xml")
+    @ExpectedDatabase(value = "/readAllData.xml",
+            assertionMode = DatabaseAssertionMode.NON_STRICT)
+    public void readAllTest() {
+        assertEquals(10, bookService.readAll().size());
     }
 }
