@@ -9,7 +9,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 @Transactional
 public class BookServiceHibernateImpl implements BookService {
@@ -66,9 +65,10 @@ public class BookServiceHibernateImpl implements BookService {
 
     @Override
     public List<Book> readByTitle(String title) {
-        return books.stream()
-                .filter(book -> book.getTitle().startsWith(title))
-                .collect(Collectors.toList());
+        return sessionFactory.getCurrentSession()
+                .createQuery("SELECT b FROM Book b WHERE title LIKE :title", Book.class)
+                .setParameter("title", "%" + title + "%")
+                .getResultList();
     }
 
     @Override

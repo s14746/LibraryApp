@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Collection;
 
-@ActiveProfiles("mock-date")
+@ActiveProfiles({"mock-date", "mock-db"})
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {DateConfiguration.class, DatabaseConfiguration.class, BookConfiguration.class})
 public class BookServiceImplTest {
