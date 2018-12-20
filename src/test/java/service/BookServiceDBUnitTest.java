@@ -71,4 +71,15 @@ public class BookServiceDBUnitTest {
     public void readTest() {
         assertEquals(5, bookService.read(5).getId());
     }
+
+    @Test
+    @DatabaseSetup("/fullData.xml")
+    @ExpectedDatabase(value = "/updateData.xml",
+            assertionMode = DatabaseAssertionMode.NON_STRICT)
+    public void updateTest() {
+        Book updatingBook = bookService.read(6);
+
+        updatingBook.setTitle("Janko Muzykantko");
+        bookService.update(updatingBook);
+    }
 }
