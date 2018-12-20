@@ -63,4 +63,12 @@ public class BookServiceDBUnitTest {
     public void readAllTest() {
         assertEquals(10, bookService.readAll().size());
     }
+
+    @Test
+    @DatabaseSetup("/fullData.xml")
+    @ExpectedDatabase(value = "/readAllData.xml",
+            assertionMode = DatabaseAssertionMode.NON_STRICT)
+    public void readTest() {
+        assertEquals(5, bookService.read(5).getId());
+    }
 }
