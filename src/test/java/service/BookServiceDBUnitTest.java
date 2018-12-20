@@ -82,4 +82,15 @@ public class BookServiceDBUnitTest {
         updatingBook.setTitle("Janko Muzykantko");
         bookService.update(updatingBook);
     }
+
+    @Test
+    @DatabaseSetup("/fullData.xml")
+    @ExpectedDatabase(value = "/deleteData.xml",
+            assertionMode = DatabaseAssertionMode.NON_STRICT)
+    public void deleteTest() {
+        Book deleteBook = bookService.read(3);
+
+        bookService.delete(deleteBook);
+        assertEquals(9, bookService.readAll().size());
+    }
 }
