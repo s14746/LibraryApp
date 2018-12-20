@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <BOOK ID="1" TITLE="Pan Tadeusz" AUTHORNAME="Adam" AUTHORSURNAME="Mickiewicz"/>
+    <BOOK ID="2" TITLE="Dziady cz.1" AUTHORNAME="Adam" AUTHORSURNAME="Mickiewicz"/>
+    <BOOK ID="3" TITLE="Ogniem i Mieczem" AUTHORNAME="Henryk" AUTHORSURNAME="Sienkiewicz"/>
+    <BOOK ID="4" TITLE="Zemsta" AUTHORNAME="Aleksander" AUTHORSURNAME="Fredro"/>
+    <BOOK ID="5" TITLE="Quo vadis" AUTHORNAME="Henryk" AUTHORSURNAME="Sienkiewicz"/>
+    <BOOK ID="6" TITLE="Janko Muzykan" AUTHORNAME="Henryk" AUTHORSURNAME="Sienkiewicz"/>
+    <BOOK ID="7" TITLE="Kordian" AUTHORNAME="Juliusz" AUTHORSURNAME="Słowacki"/>
+    <BOOK ID="8" TITLE="Katarynka" AUTHORNAME="Bolesław" AUTHORSURNAME="Prus"/>
+    <BOOK ID="9" TITLE="Latarnik" AUTHORNAME="Henryk" AUTHORSURNAME="Sienkiewicz"/>
+    <BOOK ID="10" TITLE="Dziady cz.2" AUTHORNAME="Adam" AUTHORSURNAME="Mickiewicz"/>
+</dataset>

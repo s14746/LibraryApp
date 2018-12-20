@@ -13,9 +13,9 @@ public class Book {
     private String title;
     private String authorName;
     private String authorSurname;
-    private int yearOfPublishment;
+    private Integer yearOfPublishment;
     private String publishingHouse;
-    private boolean availability;
+    private Boolean availability;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
     private LocalDateTime lastReadingTime;
@@ -52,11 +52,11 @@ public class Book {
         this.authorSurname = authorSurname;
     }
 
-    public int getYearOfPublishment() {
+    public Integer getYearOfPublishment() {
         return yearOfPublishment;
     }
 
-    public void setYearOfPublishment(int yearOfPublishment) {
+    public void setYearOfPublishment(Integer yearOfPublishment) {
         this.yearOfPublishment = yearOfPublishment;
     }
 
@@ -68,11 +68,11 @@ public class Book {
         this.publishingHouse = publishingHouse;
     }
 
-    public boolean isAvailability() {
+    public Boolean isAvailability() {
         return availability;
     }
 
-    public void setAvailability(boolean availability) {
+    public void setAvailability(Boolean availability) {
         this.availability = availability;
     }
 
