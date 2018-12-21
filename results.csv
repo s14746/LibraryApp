@@ -1,0 +1,40 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1545163913056,649,addBookFromCSV,200,OK,Dodanie rekordów z CSV 1-1,,true,,108,373,1,1,http://localhost:8080/books,649,0,39
+1545163913707,261,addBookFromCSV,200,OK,Dodanie rekordów z CSV 1-1,,true,,108,373,1,1,http://localhost:8080/books,261,0,0
+1545163913970,279,addBookFromCSV,200,OK,Dodanie rekordów z CSV 1-1,,true,,108,384,1,1,http://localhost:8080/books,279,0,0
+1545163914250,223,addBookFromCSV,200,OK,Dodanie rekordów z CSV 1-1,,true,,108,371,1,1,http://localhost:8080/books,223,0,0
+1545163914475,241,addBookFromCSV,200,OK,Dodanie rekordów z CSV 1-1,,true,,108,375,1,1,http://localhost:8080/books,241,0,0
+1545163914718,244,addBookFromCSV,200,OK,Dodanie rekordów z CSV 1-1,,true,,108,380,1,1,http://localhost:8080/books,244,0,0
+1545163914964,237,addBookFromCSV,200,OK,Dodanie rekordów z CSV 1-1,,true,,108,376,1,1,http://localhost:8080/books,237,0,0
+1545163915204,255,addBookFromCSV,200,OK,Dodanie rekordów z CSV 1-1,,true,,108,376,1,1,http://localhost:8080/books,255,0,5
+1545163915461,244,addBookFromCSV,200,OK,Dodanie rekordów z CSV 1-1,,true,,108,376,1,1,http://localhost:8080/books,244,0,0
+1545163915707,247,addBookFromCSV,200,OK,Dodanie rekordów z CSV 1-1,,true,,108,369,1,1,http://localhost:8080/books,247,0,0
+1545163918089,1482,JDBC Request - DB connect,200,OK,DB connect 1-1,text,true,,24,0,1,1,null,1479,0,1459
+1545163919576,246,Dodanie jednej książki,200,OK,Thread Group 2-1,,true,,108,376,1,1,http://localhost:8080/books,246,0,1
+1545163919824,284,Pobranie wszystkich książek,200,OK,Thread Group 2-1,text,true,,9235,123,1,1,http://localhost:8080/books,282,0,0
+1545163920109,612,Aktualizacja książki,200,OK,Thread Group 2-1,,true,,108,381,1,1,http://localhost:8080/books/1,612,0,0
+1545163920722,137,Pobranie jednej ksiązki,200,OK,Thread Group 2-1,text,true,,999,125,1,1,http://localhost:8080/books/1,136,0,0
+1545163920861,250,Usunięcie jednej książki,200,OK,Thread Group 2-1,,true,,108,212,1,1,http://localhost:8080/books/11,250,0,0
+1545163921124,10,JDBC Request - ForEach Group,200,OK,ForEach Group 3-1,text,true,,24,0,1,1,null,9,0,2
+1545163921135,7,Debug Sampler,200,OK,ForEach Group 3-1,text,true,,503,0,1,1,null,0,0,0
+1545163921146,130,ForEach pobranie książki,200,OK,ForEach Group 3-1,text,true,,999,125,1,1,http://localhost:8080/books/1,129,0,3
+1545163921277,124,ForEach pobranie książki,200,OK,ForEach Group 3-1,text,true,,994,125,1,1,http://localhost:8080/books/2,124,0,0
+1545163921403,119,ForEach pobranie książki,200,OK,ForEach Group 3-1,text,true,,1005,125,1,1,http://localhost:8080/books/3,116,0,0
+1545163921524,134,ForEach pobranie książki,200,OK,ForEach Group 3-1,text,true,,992,125,1,1,http://localhost:8080/books/4,133,0,0
+1545163921660,159,ForEach pobranie książki,200,OK,ForEach Group 3-1,text,true,,996,125,1,1,http://localhost:8080/books/5,157,0,0
+1545163921821,136,ForEach pobranie książki,200,OK,ForEach Group 3-1,text,true,,1001,125,1,1,http://localhost:8080/books/6,136,0,0
+1545163921959,124,ForEach pobranie książki,200,OK,ForEach Group 3-1,text,true,,996,125,1,1,http://localhost:8080/books/7,124,0,0
+1545163922085,152,ForEach pobranie książki,200,OK,ForEach Group 3-1,text,true,,997,125,1,1,http://localhost:8080/books/8,151,0,0
+1545163922238,113,ForEach pobranie książki,200,OK,ForEach Group 3-1,text,true,,997,125,1,1,http://localhost:8080/books/9,113,0,0
+1545163922353,115,ForEach pobranie książki,200,OK,ForEach Group 3-1,text,true,,990,126,1,1,http://localhost:8080/books/10,115,0,0
+1545163922470,246,ForEach usunięcie książki,200,OK,ForEach Group 3-1,,true,,108,211,1,1,http://localhost:8080/books/1,246,0,0
+1545163922718,228,ForEach usunięcie książki,200,OK,ForEach Group 3-1,,true,,108,211,1,1,http://localhost:8080/books/2,228,0,0
+1545163922947,250,ForEach usunięcie książki,200,OK,ForEach Group 3-1,,true,,108,211,1,1,http://localhost:8080/books/3,250,0,0
+1545163923198,248,ForEach usunięcie książki,200,OK,ForEach Group 3-1,,true,,108,211,1,1,http://localhost:8080/books/4,248,0,4
+1545163923447,234,ForEach usunięcie książki,200,OK,ForEach Group 3-1,,true,,108,211,1,1,http://localhost:8080/books/5,234,0,0
+1545163923682,239,ForEach usunięcie książki,200,OK,ForEach Group 3-1,,true,,108,211,1,1,http://localhost:8080/books/6,239,0,0
+1545163923922,235,ForEach usunięcie książki,200,OK,ForEach Group 3-1,,true,,108,211,1,1,http://localhost:8080/books/7,235,0,0
+1545163924158,237,ForEach usunięcie książki,200,OK,ForEach Group 3-1,,true,,108,211,1,1,http://localhost:8080/books/8,237,0,0
+1545163924397,231,ForEach usunięcie książki,200,OK,ForEach Group 3-1,,true,,108,211,1,1,http://localhost:8080/books/9,231,0,0
+1545163924629,251,ForEach usunięcie książki,200,OK,ForEach Group 3-1,,true,,108,212,1,1,http://localhost:8080/books/10,251,0,0
+1545163924894,19,dbCleanup,200,OK,tearDown Thread Group 1-1,text,true,,9,0,1,1,null,18,0,0

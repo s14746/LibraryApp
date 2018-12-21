@@ -9,6 +9,7 @@ import configuration.DBUnitConfiguration;
 import configuration.DatabaseConfiguration;
 import configuration.DateConfiguration;
 import domain.Book;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,5 +93,15 @@ public class BookServiceDBUnitTest {
 
         bookService.delete(deleteBook);
         assertEquals(9, bookService.readAll().size());
+    }
+
+    @Test
+    @DatabaseSetup("/fullData.xml")
+    @ExpectedDatabase(value = "/deleteAllData.xml",
+            assertionMode = DatabaseAssertionMode.NON_STRICT)
+    public void deleteAllTest() {
+
+        bookService.deleteAll();
+        assertEquals(0, bookService.readAll().size());
     }
 }
