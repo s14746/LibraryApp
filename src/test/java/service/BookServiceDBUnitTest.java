@@ -19,6 +19,8 @@ import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 @ActiveProfiles({"mock-date"})
@@ -103,5 +105,13 @@ public class BookServiceDBUnitTest {
 
         bookService.deleteAll();
         assertEquals(0, bookService.readAll().size());
+    }
+
+    @Test
+    @DatabaseSetup("/addBookData.xml")
+    public void findByTitleTest() {
+
+        List<Book> searchedBooks = bookService.readByTitle("miecz");
+        assertEquals(1, searchedBooks.size());
     }
 }

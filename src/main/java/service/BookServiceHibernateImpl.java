@@ -66,8 +66,8 @@ public class BookServiceHibernateImpl implements BookService {
     @Override
     public List<Book> readByTitle(String title) {
         return sessionFactory.getCurrentSession()
-                .createQuery("SELECT b FROM Book b WHERE title LIKE :title", Book.class)
-                .setParameter("title", "%" + title + "%")
+                .createQuery("SELECT b FROM Book b WHERE lower(title) LIKE :title", Book.class)
+                .setParameter("title", "%" + title.toLowerCase() + "%")
                 .getResultList();
     }
 
